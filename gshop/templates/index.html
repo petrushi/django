@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{% static '/style_index.css'%}">
+{% endblock %}
+
 {% block content %}
 <div class="featured">
     <div class="featured-menu">
