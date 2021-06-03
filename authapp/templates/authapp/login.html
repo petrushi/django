@@ -2,6 +2,10 @@
 {% load static %}
 
 
+{% block header %}
+Вход в систему
+{% endblock %}
+
 {% block content %}
     <form class="form-horizontal" action="{% url 'auth:login' %}" method="post">
         {% csrf_token %}
@@ -11,5 +15,10 @@
         <input class="form-control" type="submit" value="войти">
     </form>
 
+    <button class="btn btn-round form-control">
+        <a href="{% url 'auth:register' %}" class="">
+            зарегистрироваться
+        </a>
+    </button>
 {% endblock %}
 
