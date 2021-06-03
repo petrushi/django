@@ -1,0 +1,52 @@
+[
+  {
+
+      "category": 2,
+      "name": "Стул",
+      "image": "product_images/product-4.jpg",
+      "short_desc": "",
+      "description": "",
+      "price": "0.00",
+      "quantity": 1,
+      "created": "2021-06-01T09:58:28.766",
+      "updated": "2021-06-01T10:27:17.451"
+
+  },
+  {
+      "category": 3,
+      "name": "Лампа",
+      "image": "product_images/product-1.jpg",
+      "short_desc": "Современная своевременная лампа",
+      "description": "",
+      "price": "0.00",
+      "quantity": 3,
+      "created": "2021-06-01T10:24:03.446",
+      "updated": "2021-06-01T10:27:11.340"
+
+  },
+  {
+
+      "category": 2,
+      "name": "Синий стул",
+      "image": "product_images/product-2.jpg",
+      "short_desc": "Отличный стул",
+      "description": "Расположитесь комфортно.",
+      "price": "0.01",
+      "quantity": 1,
+      "created": "2021-06-01T10:35:05.256",
+      "updated": "2021-06-01T10:35:05.256"
+  },
+  {
+
+      "category": 2,
+      "name": "Премиальный стул",
+      "image": "product_images/product-21.jpg",
+      "short_desc": "Не оторваться.",
+      "description": "Стул повышенного качества",
+      "price": "0.04",
+      "quantity": 2,
+      "created": "2021-06-01T10:35:52.907",
+      "updated": "2021-06-01T10:35:52.907"
+
+  }
+]
