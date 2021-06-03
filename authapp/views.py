@@ -29,3 +29,11 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+def register(request):
+    pass
+
+
+def edit(request):
+    pass
