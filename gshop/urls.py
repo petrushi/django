@@ -15,15 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from mainapp import urls
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from authapp import urls as authapp_urls
+from mainapp import urls as mainapp_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', include(urls, namespace='products'), name='products'),
-    path('<int:pk>', views.index, name='index'),
+
+    path('auth/', include(authapp_urls, namespace='auth'), name='auth'),
+    path('products/', include(mainapp_urls, namespace='products'), name='products'),
+
+    path('', views.index, name='index'),
     path('contacts/', views.contacts, name='contacts'),
 ]
 
