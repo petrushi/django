@@ -5,12 +5,29 @@
 {% endblock %}
 
 {% block content %}
-	{% include 'includes/inc_main_menu.html' %}
+	<div class="" style="padding-left: 98px; padding-right: 211px; position: relative;">
+		{% include 'includes/inc_main_menu.html' %}
+	</div>
 	<div class="details">
 		<div class="links clearfix">
 			<ul class="links-menu">
+				<li>
+					<a href="{% url 'products:products' 0 %}"
+					   class="{% if not request.resolver_match.kwargs.pk %}
+								active
+							  {% endif %}">
+					  все
+					</a>
+				</li>
 				{% for link in links_menu %}
-				<li><a href="{{ link.href }}">{{ link.name }}</a></li>
+					<li>
+						<a href="{% url 'products:products' pk=link.pk %}"
+						   {% if request.resolver_match.kwargs.pk == link.pk %}
+						   class="active"
+						   {% endif %}>
+							{{ link.name }}
+						</a>
+					</li>
 				{% endfor %}
 			</ul>
 		</div>
@@ -71,27 +88,11 @@
 						</div>
 					</a>
 				</div>
-				<div class="block">
-					<a href="#"><img src="/static/img/product-21.jpg" alt="">
-						<div class="text">
-							<img src="/static/img/icon-hover.png" alt="img">
-							<h4>Стул повышенного качества</h4>
-							<p>Не оторваться. </p>
-						</div>
-					</a>
-				</div>
-				<div class="block">
-					<a href="#"><img src="/static/img/product-31.jpg" alt="">
-						<div class="text">
-							<img src="/static/img/icon-hover.png" alt="img">
-							<h4>Стул повышенного качества</h4>
-							<p>Не оторваться. </p>
-						</div>
-					</a>
-				</div>
 
 			</div>
 		</div>
+
+
 	</div>
 
 {% endblock %}
