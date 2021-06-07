@@ -1,10 +1,10 @@
 [
   {
 
-      "category": 2,
+      "category": 1,
       "name": "Стул",
       "image": "product_images/product-4.jpg",
-      "short_desc": "",
+      "short_desc": "Для вашего бизнеса",
       "description": "",
       "price": "0.00",
       "quantity": 1,
@@ -13,7 +13,7 @@
 
   },
   {
-      "category": 3,
+      "category": 2,
       "name": "Лампа",
       "image": "product_images/product-1.jpg",
       "short_desc": "Современная своевременная лампа",

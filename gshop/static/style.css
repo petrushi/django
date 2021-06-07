@@ -76,6 +76,7 @@ html, body {
 	width: 23px;
 	height: 23px;	
 	background-image: url(img/search.png);
+	background-repeat: no-repeat;
 	position: absolute;
 	top: 63px;
 	left: 1176px;
@@ -543,7 +544,7 @@ html, body {
 
 .footer {
 	height: 384px;
-	width: 1169px;
+	width: 1390px;
 	background-color: #f7f7f7;
 	padding-left: 99px;
 	padding-right: 98px;

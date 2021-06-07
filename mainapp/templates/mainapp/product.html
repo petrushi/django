@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{% static 'mainapp/style.css' %}">
+{% endblock %}
+
+{% block content %}
+	{% include 'includes/inc_main_menu.html' %}
+		<div class="links clearfix">
+			<ul class="links-menu">
+				<li>
+					<a href="{% url 'products:products' 0 %}"
+					   class="{% if not request.resolver_match.kwargs.pk %}
+								active
+							  {% endif %}">
+					  все
+					</a>
+				</li>
+				{% for link in links_menu %}
+					<li>
+						<a href="{% url 'products:products' pk=link.pk %}"
+						   {% if request.resolver_match.kwargs.pk == link.pk %}
+						   class="active"
+						   {% endif %}>
+							{{ link.name }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+{% endblock %}
