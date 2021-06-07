@@ -1,5 +1,26 @@
-.menu {
-	list-style-type: none;
-	margin-top: 67px;
-	float: right;
+.block a {
+    display: flex;
+    justify-content: center;
 }
+.block {
+    float: left;
+    margin-right: 30px;
+    display: block;
+    height: 370px;
+    width: 370px;
+    position: relative;
+}
+
+.block a .text {
+    position: absolute;
+    padding-top: 100px;
+    text-align: center;
+}
+.block a img {
+    width: 80px;
+}
+
+.block a .text img {
+    width: 80px;
+}
+

@@ -31,5 +31,14 @@ def basket_add(request, pk):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-def basket_remove(request):
-    pass
+def basket_remove(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    basket = Basket.objects.filter(user=request.user, product=product).first()
+
+    if basket.quantity == 1:
+        basket.delete()
+    else:
+        basket.quantity -= 1
+        basket.save()
+    
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
