@@ -31,7 +31,7 @@
 				{% endfor %}
 			</ul>
 		</div>
-		<div class="details-products">
+		{% comment %} <div class="details-products">
 			<div class="details-slider">
 				<div class="slider-product">
 					<img src="/static/img/slider1.jpg">
@@ -71,6 +71,27 @@
 					эргономики и прочность.</p>
 				</div>
 			</div>
+		</div> {% endcomment %}
+
+		<div>
+			{% if category %}
+			<h2>Категория: {{ category.name|title }}</h2>
+			{% endif %}
+		</div>
+
+		<div class="products_category">
+			{% for product in products %}
+				<div class="block w-25 my-3 mx-3">
+				  <a href="{% url 'basket:add' product.pk %}">
+					<img src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
+					<div class="text">
+					  <img src="{% static 'img/icon-hover.png' %}" alt="hover">
+					  <h4>{{ product.name }}</h4>
+					  <p>{{ product.description }} </p>
+					</div>
+				  </a>
+				</div>
+			{% endfor %}
 		</div>
 
 		<div class="related">
@@ -91,7 +112,6 @@
 
 			</div>
 		</div>
-
 
 	</div>
 
