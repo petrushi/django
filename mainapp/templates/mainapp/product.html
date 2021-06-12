@@ -6,6 +6,7 @@
 
 {% block content %}
 	{% include 'includes/inc_main_menu.html' %}
+
 		<div class="links clearfix">
 			<ul class="links-menu">
 				<li>
@@ -28,4 +29,9 @@
 				{% endfor %}
 			</ul>
 		</div>
+	<div>
+		{% if category %}
+		<h2>Категория: {{ category.name|title }}</h2>
+		{% endif %}
+	</div>
 {% endblock %}
