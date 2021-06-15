@@ -1,7 +1,5 @@
 from django.urls import path
-from .views import products
 import adminapp.views as adminapp
-from .forms import ShopUserRegisterForm
 
 
 app_name = 'adminapp'
