@@ -70,6 +70,7 @@ class Product(models.Model):
     updated = models.DateTimeField(
         auto_now=True
     )
+    is_delete = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.name} - {self.id} - {self.updated}'
