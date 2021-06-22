@@ -9,9 +9,10 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import user_passes_test
 
 from django.views.generic import ListView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class UsersListView(ListView):
+class UsersListView(LoginRequiredMixin, ListView):
     model = ShopUser
     template_name = 'adminapp/users.html'
     context_object_name = 'objects'
