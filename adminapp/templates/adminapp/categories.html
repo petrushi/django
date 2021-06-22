@@ -29,10 +29,7 @@
             </tfoot>
             <tbody>
               {% for category in objects %}
-              <tr class="category_record 
-                {% if category.is_delete %}
-                    not_active
-                {% endif %}">
+              <tr class="category_record {% if category.is_delete %} not_active {% endif %}">
 
                 <td><a href="{% url 'admin_staff:category_update' category.id %}" style="color: dodgerblue">
                 {{ category.name }}</a></td>
