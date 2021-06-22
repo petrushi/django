@@ -77,9 +77,9 @@ html, body {
 	height: 23px;	
 	background-image: url(img/search.png);
 	background-repeat: no-repeat;
-	position: absolute;
-	top: 63px;
-	left: 1176px;
+    position: relative;
+    top: 3px;
+    left: 50px;
 }
 .basket {
 	display: block;
@@ -905,7 +905,6 @@ td:first-child {
 	width: 420px;
 	height: 70px;
 	margin: 11px auto 0px;
-	padding-left: 150px
 }
 .slider-control .block {
 	height: 70px;

@@ -8,6 +8,14 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import user_passes_test
 
+from django.views.generic import ListView, CreateView
+
+
+class UsersListView(ListView):
+    model = ShopUser
+    template_name = 'adminapp/users.html'
+    context_object_name = 'objects'
+
 
 @user_passes_test(lambda u: u.is_superuser)
 def users(request):
@@ -21,6 +29,12 @@ def users(request):
     }
 
     return render(request, 'adminapp/users.html', context)
+
+
+class UserCreateView(CreateView):
+    model = ShopUser
+    form_class = ShopUserRegisterForm
+    template_name = 'adminapp/shopuser_form.html'
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -169,6 +183,21 @@ def category_delete(request, pk):
     }
 
     return render(request, 'adminapp/category_delete.html', context)
+
+
+# class ProductsListView(ListView):
+#     model = Product
+#     template_name = 'adminapp/products_list.html'
+#     context_object_name = 'objects'
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super(ProductsListView, self).get_context_data(**kwargs)
+#
+#         category = get_object_or_404(ProductCategory, pk=self.kwargs.get('pk'))
+#
+#         context.update({'category': category})
+#
+#         return context
 
 
 @user_passes_test(lambda u: u.is_superuser)

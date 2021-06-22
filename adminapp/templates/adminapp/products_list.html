@@ -1,0 +1,67 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+  <div class="container-fluid">
+    <h1 class="mt-4">Продукты</h1>
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        <a href="{% url 'admin_staff:products' 0%}"> Все </a> //
+        {% for category in categories %}
+        <a href="{% url 'admin_staff:products' category.pk %}"
+           class="{% if category.is_delete %} not_active {% endif %}">{{category.name }}</a> //
+        {% endfor %}
+      </div>
+      <div class="card-body">
+        {%  if category.pk %}
+        <a href="{% url 'adminapp:product_create' category.pk %}">
+          <button class="btn btn-success">Создать продукт </button>
+        </a>
+        <p>Категория: {{ category.name }}</p>
+        {% else %}
+        <a href="{% url 'adminapp:product_create' 1 %}">
+          <button class="btn btn-success">Создать продукт </button>
+        </a>
+        {% endif %}
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Краткое описание</th>
+                <th>Цена</th>
+                <th>Удалить</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Название</th>
+                <th>Краткое описание</th>
+                <th>Цена</th>
+                <th>Удалить</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              {% for product in object_list %}
+              <tr class="product_record {% if product.is_delete %} not_active {% endif %}">
+                <td><a href="{% url 'admin_staff:product_update' product.pk %}" style="color: dodgerblue">
+                {{ product.name }}</a></td>
+                <td>{{ product.short_desc }}</td>
+                <td>{{ product.price }}</td>
+                <td class="text-center">
+                  <a href="{% url 'admin_staff:product_delete' product.pk %}">Удалить</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

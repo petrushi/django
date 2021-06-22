@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block content %}
+	<div style="padding-left: 98px; padding-right: 211px; position: relative;">
 	{% include 'includes/inc_main_menu.html' %}
+	</div>
+
 
 		<div class="links clearfix" style="padding-right: 151px;">
 		{% include 'mainapp/includes/inc_categories_menu.html'%}
@@ -15,6 +18,26 @@
 		<h2>Категория: {{ category.name|title }}</h2>
 		{% endif %}
 	</div>
+		<div class="product_list">
+			<div class="title clearfix">
+			<div class="paginator">
+			  {% if products.has_previous %}
+				<a href="{% url 'products:page' category.pk products.previous_page_number %}">
+				  <
+				</a>
+			  {% endif %}
+			  <span class="current">
+				страница {{ products.number }} из
+				{{ products.paginator.num_pages }}
+			  </span>
+			  {% if products.has_next %}
+				<a href="{% url 'products:page' category.pk products.next_page_number %}">
+				  >
+				</a>
+			  {% endif %}
+			</div>
+		  </div>
+		</div>
 		<div class="products_category">
 			{% for product in products %}
 				<div class="block w-25 my-3 mx-3">
