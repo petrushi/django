@@ -5,7 +5,7 @@ from adminapp.forms import ShopUserRegisterForm, CategoryEditForm, ProductEditFo
 
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import user_passes_test
 
 from django.views.generic import ListView, CreateView
@@ -35,7 +35,7 @@ class UserCreateView(CreateView):
     model = ShopUser
     form_class = ShopUserRegisterForm
     template_name = 'adminapp/shopuser_form.html'
-
+    success_url = reverse_lazy('admin_staff:users')
 
 @user_passes_test(lambda u: u.is_superuser)
 def user_create(request):
